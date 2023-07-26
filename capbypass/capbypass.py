@@ -49,7 +49,7 @@ class CaptchaSolver:
             response = requests.post('https://capbypass.com/api/getBalance', headers=self.headers, json=data)
             response_data = response.json()
 
-            return response_data
+            return response_data["balance"]
 
         except requests.exceptions.RequestException as e:
             raise CaptchaError(f"Error in getting account balance: {e}")
